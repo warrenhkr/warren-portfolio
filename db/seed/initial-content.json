@@ -1,0 +1,622 @@
+{
+  "version": 1,
+  "documents": [
+    {
+      "collection": "project",
+      "slug": "robot-suiveur-de-ligne",
+      "visible": true,
+      "order": 0,
+      "data": {
+        "title": {
+          "fr": "Robot suiveur de ligne",
+          "en": "Line-following robot"
+        },
+        "category": "hardware",
+        "summary": {
+          "fr": "Robot autonome qui suit une ligne tracée au sol.",
+          "en": "Autonomous robot that follows a line drawn on the floor."
+        },
+        "tech": []
+      }
+    },
+    {
+      "collection": "skill",
+      "slug": "embedded",
+      "visible": true,
+      "order": 0,
+      "data": {
+        "category": "hardware",
+        "icon": "cpu",
+        "name": {
+          "fr": "Électronique embarquée",
+          "en": "Embedded electronics"
+        },
+        "text": {
+          "fr": "Conception et mise en œuvre de systèmes électroniques embarqués.",
+          "en": "Design and implementation of embedded electronic systems."
+        }
+      }
+    },
+    {
+      "collection": "skill",
+      "slug": "iot",
+      "visible": true,
+      "order": 1,
+      "data": {
+        "category": "hardware",
+        "icon": "wifi",
+        "name": {
+          "fr": "Internet of Things",
+          "en": "Internet of Things"
+        },
+        "text": {
+          "fr": "Objets connectés qui mesurent, communiquent et agissent.",
+          "en": "Connected objects that sense, communicate and act."
+        }
+      }
+    },
+    {
+      "collection": "skill",
+      "slug": "robotics",
+      "visible": true,
+      "order": 2,
+      "data": {
+        "category": "hardware",
+        "icon": "bot",
+        "name": {
+          "fr": "Robotique",
+          "en": "Robotics"
+        },
+        "text": {
+          "fr": "Systèmes mobiles et autonomes, du capteur à l'actionneur.",
+          "en": "Mobile, autonomous systems, from sensor to actuator."
+        }
+      }
+    },
+    {
+      "collection": "skill",
+      "slug": "electronic-systems",
+      "visible": true,
+      "order": 3,
+      "data": {
+        "category": "hardware",
+        "icon": "chip",
+        "name": {
+          "fr": "Systèmes électroniques",
+          "en": "Electronic systems"
+        },
+        "text": {
+          "fr": "Assemblage, câblage et validation de montages électroniques.",
+          "en": "Assembly, wiring and validation of electronic circuits."
+        }
+      }
+    },
+    {
+      "collection": "skill",
+      "slug": "mcu",
+      "visible": true,
+      "order": 4,
+      "data": {
+        "category": "hardware",
+        "icon": "cpu",
+        "name": {
+          "fr": "Microcontrôleurs",
+          "en": "Microcontrollers"
+        },
+        "text": {
+          "fr": "Programmation et mise en œuvre de microcontrôleurs.",
+          "en": "Programming and use of microcontrollers."
+        }
+      }
+    },
+    {
+      "collection": "skill",
+      "slug": "embedded-code",
+      "visible": true,
+      "order": 5,
+      "data": {
+        "category": "software",
+        "icon": "code",
+        "name": {
+          "fr": "Programmation embarquée",
+          "en": "Embedded programming"
+        },
+        "text": {
+          "fr": "Écrire le code qui s'exécute directement sur le matériel.",
+          "en": "Writing code that runs directly on the hardware."
+        }
+      }
+    },
+    {
+      "collection": "skill",
+      "slug": "web",
+      "visible": true,
+      "order": 6,
+      "data": {
+        "category": "software",
+        "icon": "globe",
+        "name": {
+          "fr": "Développement web",
+          "en": "Web development"
+        },
+        "text": {
+          "fr": "Sites et interfaces web modernes.",
+          "en": "Modern websites and web interfaces."
+        }
+      }
+    },
+    {
+      "collection": "skill",
+      "slug": "apps",
+      "visible": true,
+      "order": 7,
+      "data": {
+        "category": "software",
+        "icon": "layers",
+        "name": {
+          "fr": "Développement d'applications",
+          "en": "Application development"
+        },
+        "text": {
+          "fr": "Applications pensées pour un usage précis.",
+          "en": "Applications built for a specific use."
+        }
+      }
+    },
+    {
+      "collection": "skill",
+      "slug": "programming",
+      "visible": true,
+      "order": 8,
+      "data": {
+        "category": "software",
+        "icon": "code",
+        "name": {
+          "fr": "Programmation",
+          "en": "Programming"
+        },
+        "text": {
+          "fr": "Écrire du code clair et maintenable.",
+          "en": "Writing clear, maintainable code."
+        }
+      }
+    },
+    {
+      "collection": "skill",
+      "slug": "software",
+      "visible": true,
+      "order": 9,
+      "data": {
+        "category": "software",
+        "icon": "layers",
+        "name": {
+          "fr": "Développement de logiciels",
+          "en": "Software development"
+        },
+        "text": {
+          "fr": "Concevoir et livrer des logiciels.",
+          "en": "Designing and delivering software."
+        }
+      }
+    },
+    {
+      "collection": "tech",
+      "slug": "esp32",
+      "visible": true,
+      "order": 0,
+      "data": {
+        "name": "ESP32",
+        "icon": "espressif",
+        "category": "hardware",
+        "status": "unconfirmed"
+      }
+    },
+    {
+      "collection": "tech",
+      "slug": "nextjs",
+      "visible": true,
+      "order": 1,
+      "data": {
+        "name": "Next.js",
+        "icon": "nextdotjs",
+        "category": "software",
+        "status": "used"
+      }
+    },
+    {
+      "collection": "tech",
+      "slug": "react",
+      "visible": true,
+      "order": 2,
+      "data": {
+        "name": "React",
+        "icon": "react",
+        "category": "software",
+        "status": "used"
+      }
+    },
+    {
+      "collection": "tech",
+      "slug": "typescript",
+      "visible": true,
+      "order": 3,
+      "data": {
+        "name": "TypeScript",
+        "icon": "typescript",
+        "category": "software",
+        "status": "used"
+      }
+    },
+    {
+      "collection": "tech",
+      "slug": "tailwind",
+      "visible": true,
+      "order": 4,
+      "data": {
+        "name": "Tailwind CSS",
+        "icon": "tailwindcss",
+        "category": "software",
+        "status": "used"
+      }
+    },
+    {
+      "collection": "tech",
+      "slug": "python",
+      "visible": true,
+      "order": 5,
+      "data": {
+        "name": "Python",
+        "icon": "python",
+        "category": "software",
+        "status": "unconfirmed"
+      }
+    },
+    {
+      "collection": "tech",
+      "slug": "supabase",
+      "visible": true,
+      "order": 6,
+      "data": {
+        "name": "Supabase",
+        "icon": "supabase",
+        "category": "software",
+        "status": "unconfirmed"
+      }
+    },
+    {
+      "collection": "tech",
+      "slug": "prisma",
+      "visible": true,
+      "order": 7,
+      "data": {
+        "name": "Prisma",
+        "icon": "prisma",
+        "category": "software",
+        "status": "unconfirmed"
+      }
+    },
+    {
+      "collection": "ai_tool",
+      "slug": "claude",
+      "visible": true,
+      "order": 0,
+      "data": {
+        "name": "Claude",
+        "icon": "claude",
+        "url": "https://claude.ai",
+        "role": {
+          "fr": "Assistant de réflexion et de code",
+          "en": "Thinking and coding assistant"
+        },
+        "text": {
+          "fr": "Assistant d'Anthropic pour rédiger, raisonner, analyser et programmer.",
+          "en": "Anthropic's assistant for writing, reasoning, analysis and coding."
+        },
+        "usage": "unconfirmed"
+      }
+    },
+    {
+      "collection": "ai_tool",
+      "slug": "chatgpt",
+      "visible": true,
+      "order": 1,
+      "data": {
+        "name": "ChatGPT",
+        "icon": "openai",
+        "url": "https://chatgpt.com",
+        "role": {
+          "fr": "Assistant conversationnel",
+          "en": "Conversational assistant"
+        },
+        "text": {
+          "fr": "Assistant d'OpenAI pour explorer des idées, rédiger et prototyper.",
+          "en": "OpenAI's assistant for exploring ideas, writing and prototyping."
+        },
+        "usage": "unconfirmed"
+      }
+    },
+    {
+      "collection": "ai_tool",
+      "slug": "antigravity",
+      "visible": true,
+      "order": 2,
+      "data": {
+        "name": "Antigravity",
+        "url": "https://antigravity.google",
+        "role": {
+          "fr": "Environnement de développement agentique",
+          "en": "Agentic development environment"
+        },
+        "text": {
+          "fr": "Éditeur de code de Google où des agents IA aident à construire des projets.",
+          "en": "Google's code editor where AI agents help build projects."
+        },
+        "usage": "unconfirmed"
+      }
+    },
+    {
+      "collection": "nav_link",
+      "slug": "home",
+      "visible": true,
+      "order": 0,
+      "data": {
+        "label": {
+          "fr": "Accueil",
+          "en": "Home"
+        },
+        "href": "/"
+      }
+    },
+    {
+      "collection": "nav_link",
+      "slug": "about",
+      "visible": true,
+      "order": 1,
+      "data": {
+        "label": {
+          "fr": "À propos",
+          "en": "About"
+        },
+        "href": "/about"
+      }
+    },
+    {
+      "collection": "nav_link",
+      "slug": "projects",
+      "visible": true,
+      "order": 2,
+      "data": {
+        "label": {
+          "fr": "Projets",
+          "en": "Projects"
+        },
+        "href": "/projects"
+      }
+    },
+    {
+      "collection": "nav_link",
+      "slug": "lab",
+      "visible": true,
+      "order": 3,
+      "data": {
+        "label": {
+          "fr": "Lab",
+          "en": "Lab"
+        },
+        "href": "/lab"
+      }
+    },
+    {
+      "collection": "nav_link",
+      "slug": "skills",
+      "visible": true,
+      "order": 4,
+      "data": {
+        "label": {
+          "fr": "Compétences",
+          "en": "Skills"
+        },
+        "href": "/skills"
+      }
+    },
+    {
+      "collection": "nav_link",
+      "slug": "stack",
+      "visible": true,
+      "order": 5,
+      "data": {
+        "label": {
+          "fr": "Ma stack",
+          "en": "My Stack"
+        },
+        "href": "/stack"
+      }
+    },
+    {
+      "collection": "nav_link",
+      "slug": "ai-workspace",
+      "visible": true,
+      "order": 6,
+      "data": {
+        "label": {
+          "fr": "Espace IA",
+          "en": "AI Workspace"
+        },
+        "href": "/ai-workspace"
+      }
+    },
+    {
+      "collection": "nav_link",
+      "slug": "contact",
+      "visible": true,
+      "order": 7,
+      "data": {
+        "label": {
+          "fr": "Contact",
+          "en": "Contact"
+        },
+        "href": "/contact"
+      }
+    },
+    {
+      "collection": "social",
+      "slug": "github",
+      "visible": true,
+      "order": 0,
+      "data": {
+        "label": "GitHub",
+        "platform": "github",
+        "url": ""
+      }
+    },
+    {
+      "collection": "social",
+      "slug": "linkedin",
+      "visible": true,
+      "order": 1,
+      "data": {
+        "label": "LinkedIn",
+        "platform": "linkedin",
+        "url": ""
+      }
+    },
+    {
+      "collection": "site",
+      "slug": "main",
+      "visible": true,
+      "order": 0,
+      "data": {
+        "name": "WARREN HOUNKANRIN",
+        "email": ""
+      }
+    },
+    {
+      "collection": "seo",
+      "slug": "home",
+      "visible": true,
+      "order": 0,
+      "data": {
+        "title": {
+          "fr": "WARREN HOUNKANRIN — Hardware & Software",
+          "en": "WARREN HOUNKANRIN — Hardware & Software"
+        },
+        "description": {
+          "fr": "Portfolio de Warren Hounkanrin : électronique embarquée, IoT, robotique et développement logiciel.",
+          "en": ""
+        }
+      }
+    },
+    {
+      "collection": "seo",
+      "slug": "about",
+      "visible": true,
+      "order": 1,
+      "data": {
+        "title": {
+          "fr": "À propos",
+          "en": "About"
+        },
+        "description": {
+          "fr": "Qui est Warren Hounkanrin : parcours, domaines Hardware et Software, vision de la technologie.",
+          "en": ""
+        }
+      }
+    },
+    {
+      "collection": "seo",
+      "slug": "projects",
+      "visible": true,
+      "order": 2,
+      "data": {
+        "title": {
+          "fr": "Projets",
+          "en": "Projects"
+        },
+        "description": {
+          "fr": "Projets Hardware et Software de Warren Hounkanrin : électronique embarquée, IoT, robotique, web et applications.",
+          "en": ""
+        }
+      }
+    },
+    {
+      "collection": "seo",
+      "slug": "lab",
+      "visible": true,
+      "order": 3,
+      "data": {
+        "title": {
+          "fr": "Lab",
+          "en": "Lab"
+        },
+        "description": {
+          "fr": "Le laboratoire de Warren Hounkanrin : expérimentations, prototypes et preuves de concept.",
+          "en": ""
+        }
+      }
+    },
+    {
+      "collection": "seo",
+      "slug": "skills",
+      "visible": true,
+      "order": 4,
+      "data": {
+        "title": {
+          "fr": "Compétences",
+          "en": "Skills"
+        },
+        "description": {
+          "fr": "Compétences, qualifications et outils de Warren Hounkanrin, côté Hardware et Software.",
+          "en": ""
+        }
+      }
+    },
+    {
+      "collection": "seo",
+      "slug": "stack",
+      "visible": true,
+      "order": 5,
+      "data": {
+        "title": {
+          "fr": "Ma stack",
+          "en": "My Stack"
+        },
+        "description": {
+          "fr": "La stack technique de Warren Hounkanrin : technologies Hardware et Software utilisées ou explorées.",
+          "en": ""
+        }
+      }
+    },
+    {
+      "collection": "seo",
+      "slug": "ai-workspace",
+      "visible": true,
+      "order": 6,
+      "data": {
+        "title": {
+          "fr": "Espace IA",
+          "en": "AI Workspace"
+        },
+        "description": {
+          "fr": "Les outils d'intelligence artificielle de l'environnement de travail de Warren Hounkanrin.",
+          "en": ""
+        }
+      }
+    },
+    {
+      "collection": "seo",
+      "slug": "contact",
+      "visible": true,
+      "order": 7,
+      "data": {
+        "title": {
+          "fr": "Contact",
+          "en": "Contact"
+        },
+        "description": {
+          "fr": "Contactez Warren Hounkanrin pour un projet d'électronique embarquée, d'IoT, de robotique ou de développement.",
+          "en": ""
+        }
+      }
+    }
+  ]
+}

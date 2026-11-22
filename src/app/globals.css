@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────────────────────
+   TOKENS — « Forge & Signal »
+   Clair = papier d'atelier · Sombre = atelier de nuit
+   ───────────────────────────────────────────────────────────── */
+:root {
+  --bg: 244 240 233;
+  --raise: 255 255 255;
+  --raise2: 249 245 239;
+  --fg: 18 16 14;
+  --muted: 96 89 81;
+  --line: 18 16 14;
+  --ember: 176 78 0;
+  --signal: 26 59 204;
+
+  /* bande de section (thème clair : papier plus dense) */
+  --band: 237 231 220;
+
+  /* alias (ADMIN) */
+  --surface: 255 255 255;
+  --surface2: 249 245 239;
+  --side: 18 16 14;
+  --accent: 176 78 0;
+
+  --glass: 255 255 255;
+  --glass-a: 0.6;
+  --glass-border: rgb(18 16 14 / 0.1);
+  --glass-hi: rgb(255 255 255 / 0.9);
+  --shadow-1: 0 1px 2px rgb(18 16 14 / 0.05), 0 16px 40px -24px rgb(18 16 14 / 0.28);
+  --shadow-2: 0 40px 90px -50px rgb(18 16 14 / 0.45);
+  --aurora-a: 196 90 0;
+  --aurora-b: 26 59 204;
+  --aurora-o: 0.12;
+  --grain-o: 0.028;
+  color-scheme: light;
+}
+
+html.dark {
+  --bg: 13 13 13;
+  --raise: 22 22 24;
+  --raise2: 30 30 33;
+  --fg: 242 237 230;
+  --muted: 158 156 152;
+  --line: 255 255 255;
+  --ember: 255 138 61;
+  --signal: 122 153 255;
+
+  /* bande de section (thème sombre : à peine plus claire que le fond) */
+  --band: 20 20 22;
+
+  /* alias (ADMIN) */
+  --surface: 22 22 24;
+  --surface2: 30 30 33;
+  --side: 10 10 11;
+  --accent: 255 138 61;
+
+  --glass: 255 255 255;
+  --glass-a: 0.045;
+  --glass-border: rgb(255 255 255 / 0.1);
+  --glass-hi: rgb(255 255 255 / 0.1);
+  --shadow-1: 0 1px 0 rgb(255 255 255 / 0.04), 0 30px 60px -30px rgb(0 0 0 / 0.8);
+  --shadow-2: 0 60px 120px -60px rgb(0 0 0 / 0.9);
+  --aurora-a: 196 90 0;
+  --aurora-b: 26 59 204;
+  --aurora-o: 0.3;
+  --grain-o: 0.04;
+  color-scheme: dark;
+}
+
+@layer base {
+  * { border-color: rgb(var(--line) / 0.08); }
+  html { scroll-behavior: smooth; scroll-padding-top: 6rem; -webkit-tap-highlight-color: transparent; }
+  body {
+    @apply bg-bg font-sans text-fg antialiased;
+    font-feature-settings: "ss01" 1, "cv01" 1;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 { @apply font-heading; letter-spacing: -0.03em; text-wrap: balance; }
+  p { text-wrap: pretty; }
+  ::selection { background: rgb(var(--ember) / 0.28); color: rgb(var(--fg)); }
+  :focus-visible { outline: 2px solid rgb(var(--ember)); outline-offset: 3px; border-radius: 6px; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgb(var(--line) / 0.16); border-radius: 99px; border: 3px solid transparent; background-clip: content-box; }
+  ::-webkit-scrollbar-thumb:hover { background: rgb(var(--line) / 0.3); background-clip: content-box; }
+}
+
+/* Halo d'ambiance : profondeur sans surcharge */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -25%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(38% 42% at 18% 12%, rgb(var(--aurora-a) / var(--aurora-o)), transparent 70%),
+    radial-gradient(34% 38% at 84% 22%, rgb(var(--aurora-b) / var(--aurora-o)), transparent 72%),
+    radial-gradient(50% 40% at 60% 96%, rgb(var(--aurora-b) / calc(var(--aurora-o) * 0.5)), transparent 70%);
+  filter: blur(20px);
+  animation: drift 24s ease-in-out infinite;
+}
+
+/* Grain fin par-dessus l'interface */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: var(--grain-o);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@layer components {
+  /* ── Verre ─────────────────────────────────────────────────── */
+  .glass {
+    background: rgb(var(--glass) / var(--glass-a));
+    border: 1px solid var(--glass-border);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    backdrop-filter: blur(20px) saturate(150%);
+    box-shadow: inset 0 1px 0 var(--glass-hi), var(--shadow-1);
+  }
+  .glass-strong {
+    background:
+      linear-gradient(180deg, rgb(255 255 255 / calc(var(--glass-a) * 0.9)), transparent 38%),
+      rgb(var(--glass) / calc(var(--glass-a) * 2.6));
+    border: 1px solid var(--glass-border);
+    -webkit-backdrop-filter: blur(34px) saturate(170%);
+    backdrop-filter: blur(34px) saturate(170%);
+    box-shadow: inset 0 1px 0 var(--glass-hi), var(--shadow-2);
+  }
+  .glass-quiet {
+    background: rgb(var(--glass) / calc(var(--glass-a) * 0.6));
+    border: 1px solid rgb(var(--line) / 0.06);
+  }
+
+  /* ── Halo qui suit le pointeur (--mx/--my pilotés en JS) ───── */
+  .spot { position: relative; overflow: hidden; }
+  .spot-glow {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 0%), rgb(var(--ember) / 0.16), transparent 68%);
+  }
+  .spot-signal .spot-glow {
+    background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 0%), rgb(var(--signal) / 0.18), transparent 68%);
+  }
+  .spot:hover .spot-glow,
+  .spot:focus-within .spot-glow { opacity: 1; }
+
+  /* ── Grille technique discrète ─────────────────────────────── */
+  .tech-grid {
+    background-image:
+      linear-gradient(to right, rgb(var(--line) / 0.055) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(var(--line) / 0.055) 1px, transparent 1px);
+    background-size: 72px 72px;
+  }
+
+  .hairline { border-top: 1px solid rgb(var(--line) / 0.08); }
+  .display { @apply font-heading; letter-spacing: -0.035em; }
+  .mono-label { @apply font-mono text-[11px] uppercase tracking-[0.18em] text-muted; }
+
+  .lift { transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease, border-color 0.4s ease; }
+  .lift:hover { transform: translateY(-4px); }
+
+  .reveal { opacity: 0; transform: translateY(22px); filter: blur(6px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1), filter 0.8s ease; }
+  .reveal.in { opacity: 1; transform: none; filter: none; }
+
+  /* Contenu du héros : masqué tant que l'intro cinématique n'est pas terminée */
+  .hero-reveal { transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1); }
+  html[data-intro="play"] .hero-reveal { opacity: 0; transform: translateY(20px); }
+
+  .page-enter { animation: pageIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:left-5 focus:top-5 focus:z-[95] focus:rounded-xl focus:bg-fg focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-bg;
+  }
+}
+
+/* Transition de thème */
+.theme-anim, .theme-anim *, .theme-anim *::before, .theme-anim *::after {
+  transition: background-color 0.45s ease, color 0.45s ease, border-color 0.45s ease, fill 0.45s ease, stroke 0.45s ease !important;
+}
+
+@keyframes pageIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes drift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(2%, -3%, 0) scale(1.08); }
+}
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes crackDraw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+
+/* L'intro ne doit jamais rester affichée pour un visiteur déjà entré */
+html[data-intro="done"] .intro-overlay { opacity: 0; visibility: hidden; pointer-events: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; filter: none; }
+  .intro-overlay { display: none !important; }
+  body::before { animation: none; }
+}

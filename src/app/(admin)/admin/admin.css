@@ -1,0 +1,175 @@
+/* ─────────────────────────────────────────────────────────────
+   ADMIN — « Forge & Signal », version outil de travail.
+   Tout est confiné à [data-admin] : le design public n'est jamais touché.
+   Clair = papier d'atelier · sombre = atelier de nuit, via html.dark.
+   ───────────────────────────────────────────────────────────── */
+
+[data-admin],
+[data-admin-theme="light"] {
+  /* surfaces */
+  --bg: 245 246 248;
+  --surface: 255 255 255;
+  --surface2: 240 242 245;
+  --line: 214 219 227;
+  --fg: 16 24 40;
+  --muted: 98 108 128;
+  --accent: 196 90 0;
+  --side: 15 18 24;
+
+  /* verre dépoli */
+  --adm-glass: 255 255 255;
+  --adm-glass-a: 0.62;
+
+  /* sémantique : ton (aplats/bordures) + encre (texte AA sur fond teinté) */
+  --ok: 5 150 105;      --ok-ink: 4 108 78;
+  --warn: 217 119 6;    --warn-ink: 146 64 14;
+  --danger: 220 38 38;  --danger-ink: 153 27 27;
+  /* « info » = signal (#1A3BCC), pas un bleu Tailwind parallèle */
+  --info: 26 59 204;    --info-ink: 20 44 153;
+  --neutral: 100 116 139; --neutral-ink: 54 65 83;
+
+  /* action principale + danger */
+  --btn: 196 90 0;        --btn-hover: 168 77 0;      --btn-ink: 255 255 255;
+  --danger-btn: 185 28 28; --danger-btn-hover: 153 27 27; --danger-btn-ink: 255 255 255;
+
+  /* lignes / aplats de squelette */
+  --adm-skel: 222 226 233;
+  --adm-skel-hi: 240 243 247;
+
+  color-scheme: light;
+}
+
+html.dark [data-admin],
+[data-admin-theme="dark"] {
+  --bg: 13 13 13;
+  --surface: 22 22 24;
+  --surface2: 30 30 33;
+  --line: 50 50 57;
+  --fg: 242 237 230;
+  --muted: 158 156 152;
+  --accent: 255 138 61;
+  --side: 10 10 11;
+
+  --adm-glass: 255 255 255;
+  --adm-glass-a: 0.05;
+
+  --ok: 52 211 153;     --ok-ink: 134 239 172;
+  --warn: 251 191 36;   --warn-ink: 253 224 71;
+  --danger: 248 113 113; --danger-ink: 252 165 165;
+  --info: 122 153 255;  --info-ink: 175 194 255;
+  --neutral: 148 163 184; --neutral-ink: 203 213 225;
+
+  /* en sombre, l'aplat forge s'éclaircit et l'encre passe en nuit : 7,7:1 au lieu de 2,4:1 */
+  --btn: 255 138 61;      --btn-hover: 255 158 97;      --btn-ink: 22 22 24;
+  --danger-btn: 248 113 113; --danger-btn-hover: 252 165 165; --danger-btn-ink: 45 8 8;
+
+  --adm-skel: 44 44 50;
+  --adm-skel-hi: 60 60 68;
+
+  color-scheme: dark;
+}
+
+[data-admin] {
+  min-height: 100vh;
+  background: rgb(var(--bg));
+  color: rgb(var(--fg));
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: "cv05" 1, "ss01" 1;
+}
+
+/* Encadrés de comparaison de thème (planche /admin/design) */
+[data-admin-theme] {
+  background: rgb(var(--bg));
+  color: rgb(var(--fg));
+}
+
+[data-admin] :is(h1, h2, h3, h4) { font-family: inherit; letter-spacing: -0.01em; }
+
+/* Le focus visible reste sur la forge de l'ADMIN (#C45A00 / #FF8A3D), jamais sur l'ember public. */
+[data-admin] :focus-visible { outline-color: rgb(var(--accent)); }
+[data-admin] ::selection { background: rgb(var(--accent) / 0.24); color: rgb(var(--fg)); }
+
+/* Les écrans d'authentification ne sont pas dans (admin) : mêmes jetons, même focus. */
+[data-admin] input::placeholder { color: rgb(var(--muted) / 0.8); }
+
+body:has([data-admin]) { background: rgb(245 246 248); }
+html.dark body:has([data-admin]) { background: rgb(13 13 13); }
+
+/* ── Badges de statut ──────────────────────────────────────── */
+.adm-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.0625rem 0.5rem;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.adm-badge::before {
+  content: "";
+  flex: none;
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: currentColor;
+}
+.adm-badge[data-plain] { padding-inline: 0.45rem; }
+.adm-badge[data-plain]::before { display: none; }
+
+.adm-badge[data-tone="ok"] {
+  color: rgb(var(--ok-ink));
+  background: rgb(var(--ok) / 0.13);
+  border-color: rgb(var(--ok) / 0.32);
+}
+.adm-badge[data-tone="warn"] {
+  color: rgb(var(--warn-ink));
+  background: rgb(var(--warn) / 0.14);
+  border-color: rgb(var(--warn) / 0.34);
+}
+.adm-badge[data-tone="danger"] {
+  color: rgb(var(--danger-ink));
+  background: rgb(var(--danger) / 0.13);
+  border-color: rgb(var(--danger) / 0.32);
+}
+.adm-badge[data-tone="info"] {
+  color: rgb(var(--info-ink));
+  background: rgb(var(--info) / 0.12);
+  border-color: rgb(var(--info) / 0.3);
+}
+.adm-badge[data-tone="neutral"] {
+  color: rgb(var(--neutral-ink));
+  background: rgb(var(--neutral) / 0.13);
+  border-color: rgb(var(--neutral) / 0.3);
+}
+
+/* ── Squelette de chargement ────────────────────────────────── */
+.adm-skel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  background: rgb(var(--adm-skel) / 1);
+}
+.adm-skel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, var(--adm-skel-hi), transparent);
+  animation: adm-sheen 1.5s ease-in-out infinite;
+}
+@keyframes adm-sheen {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
+}
+
+/* Mouvement réduit : le squelette reste lisible, mais figé. */
+@media (prefers-reduced-motion: reduce) {
+  .adm-skel::after { animation: none; opacity: 0.45; transform: none; }
+}
+
+/* ── Densité de lecture ─────────────────────────────────────── */
+[data-admin] table { font-variant-numeric: tabular-nums; }
+[data-admin] .adm-scroll { scrollbar-width: thin; }

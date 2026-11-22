@@ -1,0 +1,15 @@
+# Fichiers qui ne doivent JAMAIS partir dans l'archive de déploiement.
+# Les variables d'environnement sont saisies dans Vercel (Settings → Environment Variables),
+# jamais téléversées avec le code.
+.env
+.env.local
+.env.*.local
+*.log
+
+# Sorties de build et dépendances : Vercel les reconstruit lui-même.
+.next
+node_modules
+
+# Divers local
+.DS_Store
+tsconfig.tsbuildinfo
